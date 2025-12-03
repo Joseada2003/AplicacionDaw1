@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="AplicacionDaw1.MainPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Dragon Ball">
+
+    <ScrollView>
+        <StackLayout>
+
+            <!-- Header -->
+            <Frame BackgroundColor="#FF6A00"
+                   CornerRadius="0"
+                   Padding="20"
+                   Margin="0,0,0,20">
+                <Label Text="🐉 DRAGON BALL" 
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center" />
+            </Frame>
+
+            <!-- Botón Cargar -->
+            <Button x:Name="CounterBtn"
+                    Text="🎮 CARGAR PERSONAJES"
+                    Clicked="OnCounterClicked"
+                    BackgroundColor="#FF6A00"
+                    TextColor="White"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    Margin="20,0,20,20" />
+
+            <!-- Loading -->
+            <ActivityIndicator x:Name="LoadingIndicator"
+                             Color="#FF6A00"
+                             IsVisible="False"
+                             HorizontalOptions="Center" />
+
+            <!-- Grid de Personajes -->
+            <CollectionView x:Name="CharactersCollectionView"
+                          IsVisible="False">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                   Span="2"
+                                   HorizontalItemSpacing="10"
+                                   VerticalItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#F5F5F5"
+                               BorderColor="#DDD"
+                               CornerRadius="15"
+                               Padding="10"
+                               Margin="5">
+
+                            <Grid RowDefinitions="150,Auto,Auto"
+                                  RowSpacing="5">
+
+                                <!-- Imagen -->
+                                <Image Grid.Row="0"
+                                   Aspect="AspectFill"
+                                        
+                                    BackgroundColor="#E0E0E0"
+                                            WidthRequest="90"
+                                    HeightRequest="170">
+                                   
+                                    <Image.Source>
+                                        <UriImageSource Uri="{Binding Image}" />
+                                    </Image.Source>
+                                </Image>
+
+                                <!-- Nombre -->
+                                <Label Grid.Row="1"
+                                       Text="{Binding Name}"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="#333"
+                                       HorizontalOptions="Center" />
+
+                                <!-- Raza -->
+                                <Label Grid.Row="2"
+                                       Text="{Binding Race}"
+                                       FontSize="12"
+                                       TextColor="#666"
+                                       HorizontalOptions="Center" />
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
