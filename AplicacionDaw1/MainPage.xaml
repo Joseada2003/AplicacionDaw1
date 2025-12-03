@@ -53,7 +53,7 @@
                                BorderColor="#DDD"
                                CornerRadius="15"
                                Padding="10"
-                               Margin="4">
+                               Margin="5">
 
                             <Grid RowDefinitions="150,Auto,Auto"
                                   RowSpacing="5">
