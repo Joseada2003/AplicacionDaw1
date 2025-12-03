@@ -64,7 +64,7 @@
                                         
                                     BackgroundColor="#E0E0E0"
                                             WidthRequest="50"
-                                    HeightRequest="170">
+                                    HeightRequest="160">
                                    
                                     <Image.Source>
                                         <UriImageSource Uri="{Binding Image}" />
